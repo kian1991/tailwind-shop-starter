@@ -18,6 +18,7 @@ function injectHTML(htmlFile, element) {
 // Inject the header
 async function injectAll() {
   await injectHTML("components/header/header.html", "#header");
+  await injectHTML("components/stats/stats.html", "#stats");
   await injectHTML("components/products/products.html", "#products");
   await injectHTML("components/modals/new-product.html", "#modal__new-product");
   await injectHTML(

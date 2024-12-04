@@ -1,0 +1,47 @@
+<div class="relative z-0 grid h-screen w-full bg-slate-500/40">
+  <div
+    class="z-10 m-auto w-[min(100%,40ch)] rounded-md border bg-white shadow-md"
+  >
+    <div
+      class="flex items-center justify-between border-b px-5 py-3 font-bold tracking-tight"
+    >
+      <span class="text-xl">Create New Product</span>
+      <a class="text-2xl" href="#">&times;</a>
+    </div>
+    <form class="grid space-y-4 px-4 py-8">
+      <input
+        class="rounded border border-y-teal-800/15 px-3 py-2 text-lg"
+        type="text"
+        name="title"
+        id="title"
+        placeholder="Title"
+      />
+      <input
+        class="rounded border border-y-teal-800/15 px-3 py-2 text-lg"
+        type="text"
+        name="img"
+        id="img"
+        placeholder="Image URL"
+      />
+      <input
+        class="rounded border border-y-teal-800/15 px-3 py-2 text-lg"
+        type="text"
+        name="description"
+        id="description"
+        placeholder="Description"
+      />
+      <input
+        class="rounded border border-y-teal-800/15 px-3 py-2 text-lg"
+        type="number"
+        name="price"
+        id="price"
+        placeholder="7.99"
+      />
+      <button
+        class="rounded border border-none bg-black px-4 py-3 font-bold uppercase tracking-widest text-white hover:bg-black/80"
+      >
+        ADD
+      </button>
+    </form>
+  </div>
+</div>

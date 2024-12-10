@@ -1,21 +1,9 @@
-<!-- const products = [
-  { id: 1, name: 'Nike Airforce 1', description: 'Tolles paar Schuhe', price: 89.99 },
-  { id: 2, name: 'Dell XPS 13 2024', description: 'Leistungsstarker Laptop', price: 1899.99 },
-  { id: 3, name: 'Apple iPhone 13', description: 'Neuestes iPhone', price: 999.99 },
-  { id: 4, name: 'Apple Watch Series 7', description: 'Smartwatch von Apple', price: 399.99 },
-  { id: 5, name: 'Sony WH-1000XM4', description: 'Noise Cancelling Kopfhörer', price: 349.99 },
-  { id: 6, name: 'Nintendo Switch', description: 'Spielekonsole von Nintendo', price: 299.99 },
-  { id: 7, name: 'Sony A7 III', description: 'Spiegellose Vollformatkamera', price: 1799.99 },
-  { id: 8, name: 'Logitech MX Master 3', description: 'Kabellose Maus', price: 99.99 },
-  { id: 9, name: 'Bose QuietComfort 45', description: 'Noise Cancelling Kopfhörer', price: 329.99 },
-  { id: 10, name: 'Samsung Galaxy S21', description: 'Smartphone von Samsung', price: 799.99 },
-]; -->
-
 <!-- PRODUCT TABLE -->
 <div class="flex w-full flex-col pt-5">
   <div class="flex items-center justify-between">
     <h3 class="text-xl font-bold tracking-tight">Products</h3>
     <button
+      id="btn-add"
       class="self-end rounded border border-none bg-black px-3 py-2 text-sm font-bold uppercase text-white hover:bg-black/80"
     >
       New
@@ -29,121 +17,10 @@
         <th class="px-6 py-3">Description</th>
         <th class="px-6 py-3">Actions</th>
       </thead>
-      <tbody>
-        <tr class="border-b bg-white">
-          <td class="px-6 py-4">1</td>
-          <td class="px-6 py-4">Nike Airforce 1</td>
-          <td class="truncate px-6 py-4">Tolles paar Schuhe</td>
-          <td class="px-6 py-4">
-            <button
-              class="rounded border border-black/10 bg-slate-500/15 p-1 shadow hover:bg-slate-500/20"
-            >
-              <img
-                class="size-5 stroke-slate-800"
-                src="/src/assets/delete-icon.svg"
-              />
-            </button>
-            <button
-              class="rounded border border-black/10 bg-slate-500/15 p-1 shadow hover:bg-slate-500/20"
-            >
-              <img
-                class="size-5 stroke-slate-800"
-                src="/src/assets/edit-icon.svg"
-              />
-            </button>
-          </td>
-        </tr>
-        <tr class="border-b bg-white">
-          <td class="px-6 py-4">2</td>
-          <td class="px-6 py-4">Dell XPS 13 2024</td>
-          <td class="truncate px-6 py-4">Leistungsstarker Laptop</td>
-          <td class="px-6 py-4">
-            <button
-              class="rounded border border-black/10 bg-slate-500/15 p-1 shadow hover:bg-slate-500/20"
-            >
-              <img
-                class="size-5 stroke-slate-800"
-                src="/src/assets/delete-icon.svg"
-              />
-            </button>
-            <button
-              class="rounded border border-black/10 bg-slate-500/15 p-1 shadow hover:bg-slate-500/20"
-            >
-              <img
-                class="size-5 stroke-slate-800"
-                src="/src/assets/edit-icon.svg"
-              />
-            </button>
-          </td>
-        </tr>
-        <tr class="border-b bg-white">
-          <td class="px-6 py-4">2</td>
-          <td class="px-6 py-4">Dell XPS 13 2024</td>
-          <td class="truncate px-6 py-4">Leistungsstarker Laptop</td>
-          <td class="px-6 py-4">
-            <button
-              class="rounded border border-black/10 bg-slate-500/15 p-1 shadow hover:bg-slate-500/20"
-            >
-              <img
-                class="size-5 stroke-slate-800"
-                src="/src/assets/delete-icon.svg"
-              />
-            </button>
-            <button
-              class="rounded border border-black/10 bg-slate-500/15 p-1 shadow hover:bg-slate-500/20"
-            >
-              <img
-                class="size-5 stroke-slate-800"
-                src="/src/assets/edit-icon.svg"
-              />
-            </button>
-          </td>
-        </tr>
-        <tr class="border-b bg-white">
-          <td class="px-6 py-4">2</td>
-          <td class="px-6 py-4">Dell XPS 13 2024</td>
-          <td class="truncate px-6 py-4">Leistungsstarker Laptop</td>
-          <td class="px-6 py-4">
-            <button
-              class="rounded border border-black/10 bg-slate-500/15 p-1 shadow hover:bg-slate-500/20"
-            >
-              <img
-                class="size-5 stroke-slate-800"
-                src="/src/assets/delete-icon.svg"
-              />
-            </button>
-            <button
-              class="rounded border border-black/10 bg-slate-500/15 p-1 shadow hover:bg-slate-500/20"
-            >
-              <img
-                class="size-5 stroke-slate-800"
-                src="/src/assets/edit-icon.svg"
-              />
-            </button>
-          </td>
-        </tr>
-
-        <tr class="border-b bg-white">
-          <td class="px-6 py-4">2</td>
-          <td class="px-6 py-4">Dell XPS 13 2024</td>
-          <td class="truncate px-6 py-4">Leistungsstarker Laptop</td>
-          <td class="px-6 py-4">
-            <button
-              class="rounded border border-black/10 bg-slate-500/15 p-1 shadow hover:bg-slate-500/20"
-            >
-              <img
-                class="size-5 stroke-slate-800"
-                src="/src/assets/delete-icon.svg"
-              />
-            </button>
-            <button
-              class="rounded border border-black/10 bg-slate-500/15 p-1 shadow hover:bg-slate-500/20"
-            >
-              <img
-                class="size-5 stroke-slate-800"
-                src="/src/assets/edit-icon.svg"
-              />
-            </button>
+      <tbody id="product-table-body">
+        <tr>
+          <td colspan="4" class="w-100 py-5 text-center">
+            No Products loaded yet..
           </td>
         </tr>
       </tbody>

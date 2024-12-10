@@ -1,30 +1,61 @@
-/**
- * Injects HTML from a file into an element
- * @param {string} htmlFile - The path to the HTML file
- * @param {string} element - The element to inject the HTML into
- * @returns {Promise<void>}
- * @example
- * injectHTML('path/to/file.html', '.element')
- */
-function injectHTML(htmlFile, element) {
-  return fetch(htmlFile)
-    .then((response) => response.text())
-    .then((data) => {
-      document.querySelector(element).innerHTML = data;
-    })
-    .then(() => console.log(`Injected ${htmlFile} into ${element}`));
+// imports
+import { ProductService } from "./services/products.js";
+import { productState } from "./store/product-state.js";
+import { injectAll } from "./util/injector.js";
+
+async function initHomepage() {
+  await injectAll();
+
+  // initial product fetch
+  const products = await ProductService.getProducts();
+  if (!products) alert("Problem with fetching Products...please try again.");
+
+  // products are loaded
+  productState.setProducts(products);
 }
 
-// Inject the header
-async function injectAll() {
-  await injectHTML("components/header/header.html", "#header");
-  await injectHTML("components/stats/stats.html", "#stats");
-  await injectHTML("components/products/products.html", "#products");
-  await injectHTML("components/modals/new-product.html", "#modal__new-product");
-  await injectHTML(
-    "components/modals/edit-product.html",
-    "#modal__edit-product",
-  );
-}
+initHomepage();
 
-injectAll();
+// Attach Eventlisteners
+document.body.addEventListener("click", (event) => {
+  // Check for buttons
+  if (event.target.id === "btn-add")
+    document.querySelector("#modal__new-product").showModal();
+});
+
+document.body.addEventListener("submit", async (event) => {
+  // preventDefault, prevents the forms default behaviour i.e. sumitting to another page and redirecting
+  const formElement = event.target; // Read here for explanation of currentTarget: https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget
+
+  // Extract form values
+  const formData = new FormData(formElement);
+
+  const product = Object.fromEntries(formData.entries());
+
+  // FormValidation should happen here! Not necessarry for now :)
+
+  // Here differentiate between create and add product
+  if (formElement.id === "form-add")
+    await ProductService.createProduct(product);
+
+  if (formElement.id === "form-edit")
+    await ProductService.updateProduct(product.productId, product);
+
+  // Empty the form
+  formElement.reset();
+});
+
+window.editProduct = async function (id) {
+  // show edit modal
+  document.querySelector("#modal__edit-product").showModal();
+  // get the product and insert values to the form.
+  const product = productState.getProductById(id);
+
+  document.querySelector("#form-edit #productId").value = product.id;
+
+  document.querySelector("#form-edit #name").value = product.name;
+
+  document.querySelector("#form-edit #description").value = product.description;
+
+  document.querySelector("#form-edit #price").value = product.price;
+};
